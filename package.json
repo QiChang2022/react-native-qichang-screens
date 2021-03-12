@@ -47,7 +47,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@ant-design/react-native": "^4.0.7",
     "@commitlint/config-conventional": "^11.0.0",
+    "@damoness/react-native-qichang-kit": "^0.16.0",
+    "@damoness/react-native-umeng": "^1.5.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/jest": "^26.0.0",
@@ -64,12 +67,23 @@
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-builder-bob": "^0.17.1",
+    "react-native-qichang-api": "^1.0.3",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-tab-view": "^2.16.0",
+    "react-navigation": "^4.4.4",
     "release-it": "^14.2.2",
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-qichang-api": "^1.0.3",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-tab-view": "^2.16.0",
+    "@ant-design/react-native": "^4.0.7",
+    "@damoness/react-native-qichang-kit": "^0.16.0",
+    "@damoness/react-native-umeng": "^1.5.0"
+
   },
   "jest": {
     "preset": "react-native",
