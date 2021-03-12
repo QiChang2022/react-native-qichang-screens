@@ -1,0 +1,22 @@
+{
+  "name": "react-native-qichang-screens-example",
+  "displayName": "QichangScreens Example",
+  "expo": {
+    "name": "react-native-qichang-screens-example",
+    "slug": "react-native-qichang-screens-example",
+    "description": "Example app for react-native-qichang-screens",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
