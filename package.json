@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/Damoness/react-native-qichang-screens",
+  "repository": "https://github.com/QiChang2022/react-native-qichang-screens",
   "author": "Damoness <qjwdcool@qq.com> (https://github.com/Damoness)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Damoness/react-native-qichang-screens/issues"
+    "url": "https://github.com/QiChang2022/react-native-qichang-screens/issues"
   },
-  "homepage": "https://github.com/Damoness/react-native-qichang-screens#readme",
+  "homepage": "https://github.com/QiChang2022/react-native-qichang-screens#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
