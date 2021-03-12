@@ -1,6 +1,6 @@
 {
   "name": "react-native-qichang-screens",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "汽场screens",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -83,7 +83,6 @@
     "@ant-design/react-native": "^4.0.7",
     "@damoness/react-native-qichang-kit": "^0.16.0",
     "@damoness/react-native-umeng": "^1.5.0"
-
   },
   "jest": {
     "preset": "react-native",
