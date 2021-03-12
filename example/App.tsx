@@ -26,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-//import {} from 'react-native-qichang-screens';
+// import {} from 'react-native-qichang-screens';
 
 declare const global: {HermesInternal: null | {}};
 
