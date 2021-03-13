@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   View,
   Dimensions,
@@ -22,15 +22,13 @@ import { Toast } from '@ant-design/react-native';
 
 import { DiscoveryAPI } from 'react-native-qichang-api';
 
-import { NavigationContext } from 'react-navigation';
-
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const initialLayout = { width: Dimensions.get('window').width };
 
 //汽场号榜单
 export default function QichanghaoRankingScreen() {
-  const navigation = useContext(NavigationContext);
+  const navigation: any = null;
 
   const [index, setIndex] = React.useState(0);
   const [recordType, setRecordType] = React.useState(RecordType.month);
@@ -147,6 +145,7 @@ export default function QichanghaoRankingScreen() {
 
     return (
       <RankingScreen
+        navigation={navigation}
         recordType={recordType}
         rankingType={rankingType}
         rankingId={rankingId}

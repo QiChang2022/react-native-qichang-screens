@@ -20,10 +20,6 @@ import { DiscoveryAPI } from 'react-native-qichang-api';
 
 import { SafeAreaInsetsContext } from 'react-native-safe-area-context';
 
-//import { NavigationStackProp } from 'react-navigation-stack';
-
-import { withNavigation } from 'react-navigation';
-
 const { width: ScreenWidth } = Dimensions.get('window');
 
 type Props = {
@@ -306,4 +302,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(RankingScreen);
+export default RankingScreen;
