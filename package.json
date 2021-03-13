@@ -1,6 +1,6 @@
 {
   "name": "react-native-qichang-screens",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "汽场screens",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
