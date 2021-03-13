@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {QichanghaoRankingScreen} from 'react-native-qichang-screens';
+import {QichanghaoRankingScreen} from '../src';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 declare const global: {HermesInternal: null | {}};
 

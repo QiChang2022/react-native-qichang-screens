@@ -740,11 +740,6 @@
   resolved "https://registry.npmjs.org/@damoness/react-native-qichang-kit/-/react-native-qichang-kit-0.16.0.tgz#eef3d51723214d18ca8c635e999ae04a1990049d"
   integrity sha512-fG7PHHdFpuz66gkJEFkRpsCKEY7OwWKF+Er7GPXkxbsqsf2RvPF1vEA8vFhBm6GrpvFB70+qNSPjjziF1kHC7Q==
 
-"@damoness/react-native-umeng@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@damoness/react-native-umeng/-/react-native-umeng-1.5.0.tgz#09b3448db2ebb03ec6b63ccbcd33d341fa296d9a"
-  integrity sha512-XxHIhxH7JBGaC/dArt2QYdzko+HE/ewhWT+X3APtC22072saW7zqbm+8sY8jO7KqBNtj4N5tUMX7Y52bURXlWw==
-
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -1013,18 +1008,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@react-native-community/async-storage@^1.12.1":
-  version "1.12.1"
-  resolved "https://registry.npmjs.org/@react-native-community/async-storage/-/async-storage-1.12.1.tgz#25f821b4f6b13abe005ad67e47c6f1cee9f27b24"
-  integrity sha512-70WGaH3PKYASi4BThuEEKMkyAgE9k7VytBqmgPRx3MzJx9/MkspwqJGmn3QLCgHLIFUgF1pit2mWICbRJ3T3lg==
-  dependencies:
-    deep-assign "^3.0.0"
-
-"@react-native-community/cameraroll@^4.0.2":
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/@react-native-community/cameraroll/-/cameraroll-4.0.2.tgz#5baac97f4a56f50b7307b08efcc1fe37acdec462"
-  integrity sha512-GtSZO6pqUzyZvaYidB5zH90o6Yb9YatapgiMQ+JVdbK4bDD74GdrNGDwyinDTzE5LkAQ90HDoAhVgV/uWt5OrQ==
-
 "@react-native-community/cli-debugger-ui@^4.13.1":
   version "4.13.1"
   resolved "https://registry.npmjs.org/@react-native-community/cli-debugger-ui/-/cli-debugger-ui-4.13.1.tgz#07de6d4dab80ec49231de1f1fbf658b4ad39b32c"
@@ -1168,31 +1151,6 @@
   version "1.1.0"
   resolved "https://registry.npmjs.org/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
-
-"@react-native-community/picker@^1.8.1":
-  version "1.8.1"
-  resolved "https://registry.npmjs.org/@react-native-community/picker/-/picker-1.8.1.tgz#94f14f0aad98fa7592967b941be97deec95c3805"
-  integrity sha512-Sj9DzX1CSnmYiuEQ5fQhExoo4XjSKoZkqLPAAybycq6RHtCuWppf+eJXRMCOJki25BlKSSt+qVqg0fIe//ujNQ==
-
-"@react-native-community/segmented-control@^2.2.2":
-  version "2.2.2"
-  resolved "https://registry.npmjs.org/@react-native-community/segmented-control/-/segmented-control-2.2.2.tgz#4014256819ab8f40f6bc3a3929ff14a9d149cf04"
-  integrity sha512-14+4HnGVrg3USqMzcHCPCqPmPmaEj0ogQH4pHRFXjoVvJokzidXBcYyXl5yrwFcKGW6zTXI6Fx9Qgt4ydtS6tw==
-
-"@react-native-community/slider@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.npmjs.org/@react-native-community/slider/-/slider-3.0.3.tgz#830167fd757ba70ac638747ba3169b2dbae60330"
-  integrity sha512-8IeHfDwJ9/CTUwFs6x90VlobV3BfuPgNLjTgC6dRZovfCWigaZwVNIFFJnHBakK3pW2xErAPwhdvNR4JeNoYbw==
-
-"@react-native-community/viewpager@^5.0.11":
-  version "5.0.11"
-  resolved "https://registry.npmjs.org/@react-native-community/viewpager/-/viewpager-5.0.11.tgz#dbeb2d1b2452607926407c99e4de59c7db9e3019"
-  integrity sha512-eboJwbDQjP1qJP3LFzVspgh88IGNF07S2qpU296j+4kL0inVuL+HXs81SuczMGtJmDZ4u19RNEBVq79of/h+jQ==
-
-"@react-native-picker/picker@^1.9.12":
-  version "1.9.12"
-  resolved "https://registry.npmjs.org/@react-native-picker/picker/-/picker-1.9.12.tgz#627a865d759be4062bc41b50cb614972c1d66634"
-  integrity sha512-Fyvpu7+VLheC+Y2D21DJ6SCpx8WG3xSEBmgR+7SDcAuc6wqMEeIFUxtIjlGoSQXyGIsOoDUsuZ17pbbQnw/MeA==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.2"
@@ -2443,13 +2401,6 @@ decode-uri-component@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmjs.org/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
-
-deep-assign@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.npmjs.org/deep-assign/-/deep-assign-3.0.0.tgz#c8e4c4d401cba25550a2f0f486a2e75bc5f219a2"
-  integrity sha512-YX2i9XjJ7h5q/aQ/IM9PEwEnDqETAIYbggmdDB3HLTlSgo1CxPsj6pvhPG68rq6SVE0+p+6Ywsm5fTYNrYtBWw==
-  dependencies:
-    is-obj "^1.0.0"
 
 deep-is@~0.1.3:
   version "0.1.3"
@@ -3802,11 +3753,6 @@ is-number@^7.0.0:
   version "7.0.0"
   resolved "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz#7535345b896734d5f80c4d06c50955527a14f12b"
   integrity sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
-
-is-obj@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
-  integrity sha1-PkcprB9f3gJc19g6iW2rn09n2w8=
 
 is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
@@ -5726,10 +5672,10 @@ react-native-qichang-api@^1.0.3:
   resolved "https://registry.npmjs.org/react-native-qichang-api/-/react-native-qichang-api-1.0.3.tgz#7e7f1eb4d668d57990db1987a7ee3e02b74d3548"
   integrity sha512-M97hvUFpKb1avq0KW1LKiR5oJFw9G9ALEJmqEMVIMuPXHNgnpnfepmgH4U7oL5IP8kCGf8Wbjcf/Qv9NnHz/6g==
 
-react-native-qichang-screens@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.3.3.tgz#ec4e390cc671aeb194bfd8e915c787c50e3a3394"
-  integrity sha512-6/NSOON0cyd+WA1COHpp4kjCOLdgGIy2PU6T+EPzO1W+qRc4mYfKmG93vpEVd+GUQQ7uw8MhK9zn1hRlH/KLsQ==
+react-native-qichang-screens@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.3.4.tgz#892a20ffd3d8f9bae74eb9dc435630f66f135279"
+  integrity sha512-/zizS3Sb9lPjk1I3GOb3gt+M4r2iISiA7bA2wgYl9gf6g6uBDjqecKZWpxtYTnUJQZnJSdbZLWHjmEe0bm19ng==
 
 react-native-reanimated@^1.9.0:
   version "1.13.2"

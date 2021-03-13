@@ -14,11 +14,7 @@ import RankingScreen from './RankingScreen';
 
 import { TimeRangeView, HeaderRight } from './components';
 
-import { ShareUtil, Platform } from '@damoness/react-native-umeng';
-
 import { NavigationBar, BottomModal } from '@damoness/react-native-qichang-kit';
-
-import { Toast } from '@ant-design/react-native';
 
 import { DiscoveryAPI } from 'react-native-qichang-api';
 
@@ -28,10 +24,14 @@ const initialLayout = { width: Dimensions.get('window').width };
 
 type Props = {
   navigation?: any;
+  onPressShare?: (imageUrl?: string) => void;
 };
 
 //汽场号榜单
-export default function QichanghaoRankingScreen({ navigation }: Props) {
+export default function QichanghaoRankingScreen({
+  navigation,
+  onPressShare,
+}: Props) {
   const [index, setIndex] = React.useState(0);
   const [recordType, setRecordType] = React.useState(RecordType.month);
 
@@ -197,19 +197,21 @@ export default function QichanghaoRankingScreen({ navigation }: Props) {
 
                 console.debug('ranking_img_url', ranking_img_url);
 
-                if (ranking_img_url) {
-                  ShareUtil.share(
-                    '图片',
-                    ranking_img_url,
-                    '',
-                    '标题',
-                    Platform.Wechat
-                  );
-                } else {
-                  Toast.info('图片地址有误');
-                }
+                onPressShare && onPressShare(ranking_img_url);
+
+                // if (ranking_img_url) {
+                //   ShareUtil.share(
+                //     '图片',
+                //     ranking_img_url,
+                //     '',
+                //     '标题',
+                //     Platform.Wechat
+                //   );
+                // } else {
+                //   Toast.info('图片地址有误');
+                // }
               } catch (error) {
-                Toast.info(JSON.stringify(error));
+                //Toast.info(JSON.stringify(error));
               }
             }}
           />
