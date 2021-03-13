@@ -5672,10 +5672,10 @@ react-native-qichang-api@^1.0.3:
   resolved "https://registry.npmjs.org/react-native-qichang-api/-/react-native-qichang-api-1.0.3.tgz#7e7f1eb4d668d57990db1987a7ee3e02b74d3548"
   integrity sha512-M97hvUFpKb1avq0KW1LKiR5oJFw9G9ALEJmqEMVIMuPXHNgnpnfepmgH4U7oL5IP8kCGf8Wbjcf/Qv9NnHz/6g==
 
-react-native-qichang-screens@^0.3.4:
-  version "0.3.4"
-  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.3.4.tgz#892a20ffd3d8f9bae74eb9dc435630f66f135279"
-  integrity sha512-/zizS3Sb9lPjk1I3GOb3gt+M4r2iISiA7bA2wgYl9gf6g6uBDjqecKZWpxtYTnUJQZnJSdbZLWHjmEe0bm19ng==
+react-native-qichang-screens@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.3.5.tgz#4ea764e37f0e22056fc1e79d3c85bcccab49a486"
+  integrity sha512-MG4yHDMaQOcjm0HuKE25FNThsUkpTHptXe4ehtHQb86EBZ3wWrXownrpjYwjigJufp515+nfu4+p4NjjQlOEfg==
 
 react-native-reanimated@^1.9.0:
   version "1.13.2"
