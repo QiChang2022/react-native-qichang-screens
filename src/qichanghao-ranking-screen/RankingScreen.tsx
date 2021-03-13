@@ -32,7 +32,7 @@ type Props = {
 
   onTabChanged: (index: number) => void;
 
-  navigation: any;
+  navigation?: any;
 };
 
 const backgroundImages = [
@@ -113,7 +113,7 @@ class RankingScreen extends PureComponent<Props, State> {
         text: '取消',
         style: 'cancel',
         onPress: () => {
-          this.props.navigation.pop();
+          this.props.navigation?.pop();
         },
       },
     ]);
@@ -145,7 +145,7 @@ class RankingScreen extends PureComponent<Props, State> {
   }
 
   goToColumnDetail = (id: number) => {
-    this.props.navigation.push('ArticleColumnScreen', { articleColumnId: id });
+    this.props.navigation?.push('ArticleColumnScreen', { articleColumnId: id });
   };
 
   render() {

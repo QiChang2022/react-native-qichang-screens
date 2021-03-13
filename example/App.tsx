@@ -10,14 +10,17 @@
 
 import React from 'react';
 import {QichanghaoRankingScreen} from 'react-native-qichang-screens';
-import {NavigationBar} from '@damoness/react-native-qichang-kit';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 declare const global: {HermesInternal: null | {}};
+
+import {setURL, HttpUtils} from 'react-native-qichang-api';
+
+HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
+setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
 
 const App = () => {
   return (
     <SafeAreaProvider>
-      <NavigationBar />
       <QichanghaoRankingScreen />
     </SafeAreaProvider>
   );
