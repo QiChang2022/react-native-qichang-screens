@@ -23,14 +23,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const initialLayout = { width: Dimensions.get('window').width };
 
 type Props = {
-  navigation?: any;
   onPressShare?: (imageUrl?: string) => void;
+  onPressBack?: () => void;
+  onPressQichanghaoItem?: (id: number) => void;
 };
 
 //汽场号榜单
 export default function QichanghaoRankingScreen({
-  navigation,
   onPressShare,
+  onPressBack,
+  onPressQichanghaoItem,
 }: Props) {
   const [index, setIndex] = React.useState(0);
   const [recordType, setRecordType] = React.useState(RecordType.month);
@@ -147,7 +149,8 @@ export default function QichanghaoRankingScreen({
 
     return (
       <RankingScreen
-        navigation={navigation}
+        onPressQichanghaoItem={onPressQichanghaoItem}
+        onPressBack={onPressBack}
         recordType={recordType}
         rankingType={rankingType}
         rankingId={rankingId}
@@ -172,9 +175,7 @@ export default function QichanghaoRankingScreen({
   return (
     <View style={{ flex: 1 }}>
       <NavigationBar
-        onPressBack={() => {
-          navigation?.goBack();
-        }}
+        onPressBack={onPressBack}
         title={'汽场号榜单'}
         style={styles.navigationBar}
         headerRight={

@@ -29,10 +29,10 @@ type Props = {
 
   rankingId?: number; //排行榜ID,
   time?: string; //选择的时间, 与上面的是一对
-
   onTabChanged: (index: number) => void;
 
-  navigation?: any;
+  onPressQichanghaoItem?: (id: number) => void;
+  onPressBack?: () => void;
 };
 
 const backgroundImages = [
@@ -113,7 +113,7 @@ class RankingScreen extends PureComponent<Props, State> {
         text: '取消',
         style: 'cancel',
         onPress: () => {
-          this.props.navigation?.pop();
+          this.props.onPressBack && this.props.onPressBack();
         },
       },
     ]);
@@ -144,12 +144,19 @@ class RankingScreen extends PureComponent<Props, State> {
     console.log('preProps', preProps, this.props);
   }
 
-  goToColumnDetail = (id: number) => {
-    this.props.navigation?.push('ArticleColumnScreen', { articleColumnId: id });
-  };
+  // goToColumnDetail = (id: number) => {
+  //   this.props.navigation?.push('ArticleColumnScreen', { articleColumnId: id });
+  //   this.props.onPressQichanghaoItem && this.props.onPressQichanghaoItem(id);
+  // };
 
   render() {
-    const { index, onTabChanged, recordType, time } = this.props;
+    const {
+      index,
+      onTabChanged,
+      recordType,
+      time,
+      onPressQichanghaoItem,
+    } = this.props;
 
     const { data, loading, error } = this.state;
 
@@ -231,7 +238,8 @@ class RankingScreen extends PureComponent<Props, State> {
                             hot={record_value}
                             cover={user_cover}
                             onPress={() => {
-                              this.goToColumnDetail(user_id);
+                              onPressQichanghaoItem &&
+                                onPressQichanghaoItem(user_id);
                             }}
                           />
                         );
@@ -275,7 +283,8 @@ class RankingScreen extends PureComponent<Props, State> {
                       <RankingRowItem
                         item={item}
                         onPress={() => {
-                          this.goToColumnDetail(user_id);
+                          onPressQichanghaoItem &&
+                            onPressQichanghaoItem(user_id);
                         }}
                         index={i}
                         key={i}

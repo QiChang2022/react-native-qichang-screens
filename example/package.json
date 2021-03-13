@@ -10,7 +10,6 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@ant-design/react-native": "^4.0.7",
     "@damoness/react-native-qichang-kit": "^0.16.0",
     "beeshell": "^2.0.11",
     "react": "16.13.1",
