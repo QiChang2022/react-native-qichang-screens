@@ -278,7 +278,7 @@ class RankingScreen extends PureComponent<Props, State> {
                           this.goToColumnDetail(user_id);
                         }}
                         index={i}
-                        key={index}
+                        key={i}
                       />
                     );
                   })
