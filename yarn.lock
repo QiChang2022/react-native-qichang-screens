@@ -1164,6 +1164,11 @@
   resolved "https://registry.npmjs.org/@damoness/react-native-qichang-kit/-/react-native-qichang-kit-0.16.0.tgz#eef3d51723214d18ca8c635e999ae04a1990049d"
   integrity sha512-fG7PHHdFpuz66gkJEFkRpsCKEY7OwWKF+Er7GPXkxbsqsf2RvPF1vEA8vFhBm6GrpvFB70+qNSPjjziF1kHC7Q==
 
+"@damoness/react-native-refresh@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@damoness/react-native-refresh/-/react-native-refresh-0.5.0.tgz#a09ec79e2520d354fa82572f82a2f003d8a92c2b"
+  integrity sha512-Y3Y+sJ0rgggunn4JcmG+0dmaoT0+vEMQkX7Luqx7NOu6/EqlFOnD36Gi3pvTeJNOCOZYVH7r+u5Z8KM4aIDF9Q==
+
 "@eslint/eslintrc@^0.4.0":
   version "0.4.0"
   resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-0.4.0.tgz#99cc0a0584d72f1df38b900fb062ba995f395547"
