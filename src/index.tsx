@@ -1,2 +1,3 @@
 import QichanghaoRankingScreen from './qichanghao-ranking-screen';
-export { QichanghaoRankingScreen };
+import SearchScreen from './search-screen';
+export { QichanghaoRankingScreen, SearchScreen };
