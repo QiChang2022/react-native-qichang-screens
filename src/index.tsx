@@ -1,3 +1,5 @@
-import QichanghaoRankingScreen from './qichanghao-ranking-screen';
-import * as SearchScreen from './search-screen';
-export { QichanghaoRankingScreen, SearchScreen };
+export { default as QichanghaoRankingScreen } from './qichanghao-ranking-screen';
+export {
+  ItemType as SearchScreenItemType,
+  default as SearchScreen,
+} from './search-screen';
