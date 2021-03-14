@@ -708,6 +708,11 @@
   resolved "https://registry.npmjs.org/@damoness/react-native-qichang-kit/-/react-native-qichang-kit-0.16.0.tgz#eef3d51723214d18ca8c635e999ae04a1990049d"
   integrity sha512-fG7PHHdFpuz66gkJEFkRpsCKEY7OwWKF+Er7GPXkxbsqsf2RvPF1vEA8vFhBm6GrpvFB70+qNSPjjziF1kHC7Q==
 
+"@damoness/react-native-refresh@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@damoness/react-native-refresh/-/react-native-refresh-0.5.0.tgz#a09ec79e2520d354fa82572f82a2f003d8a92c2b"
+  integrity sha512-Y3Y+sJ0rgggunn4JcmG+0dmaoT0+vEMQkX7Luqx7NOu6/EqlFOnD36Gi3pvTeJNOCOZYVH7r+u5Z8KM4aIDF9Q==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npmjs.org/@egjs/hammerjs/-/hammerjs-2.0.17.tgz#5dc02af75a6a06e4c2db0202cae38c9263895124"
@@ -2245,6 +2250,14 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     is-directory "^0.3.1"
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
+
+create-react-class@^15.7.0:
+  version "15.7.0"
+  resolved "https://registry.npmjs.org/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
+  integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
+  dependencies:
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
 
 cross-fetch@^3.0.4:
   version "3.0.6"
@@ -4556,7 +4569,7 @@ lolex@^5.0.0:
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -5591,10 +5604,10 @@ react-native-qichang-api@^1.0.3:
   resolved "https://registry.npmjs.org/react-native-qichang-api/-/react-native-qichang-api-1.0.3.tgz#7e7f1eb4d668d57990db1987a7ee3e02b74d3548"
   integrity sha512-M97hvUFpKb1avq0KW1LKiR5oJFw9G9ALEJmqEMVIMuPXHNgnpnfepmgH4U7oL5IP8kCGf8Wbjcf/Qv9NnHz/6g==
 
-react-native-qichang-screens@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.3.5.tgz#4ea764e37f0e22056fc1e79d3c85bcccab49a486"
-  integrity sha512-MG4yHDMaQOcjm0HuKE25FNThsUkpTHptXe4ehtHQb86EBZ3wWrXownrpjYwjigJufp515+nfu4+p4NjjQlOEfg==
+react-native-qichang-screens@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.npmjs.org/react-native-qichang-screens/-/react-native-qichang-screens-0.6.2.tgz#616b67acdac278283d3b7f0010b3f49671a36550"
+  integrity sha512-i1bFpPiknVGDL5Cjd/PkYLbIta4UBYs1lZ3X9hODgM5SiaFvhsUyf6uJxoLb0aRTa9p/Byj4ceuWQO18gx0Ztg==
 
 react-native-reanimated@^1.9.0:
   version "1.13.2"

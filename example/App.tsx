@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {QichanghaoRankingScreen} from 'react-native-qichang-screens';
+import {SearchScreen} from 'react-native-qichang-screens';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import {setURL, HttpUtils} from 'react-native-qichang-api';
@@ -30,7 +30,7 @@ const App = () => {
         // showHideTransition={statusBarTransition}
         // hidden={hidden}
       />
-      <QichanghaoRankingScreen />
+      <SearchScreen />
     </SafeAreaProvider>
   );
 };
