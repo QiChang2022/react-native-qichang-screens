@@ -26,7 +26,9 @@ export { ItemType };
 type Props = {
   defaultSearch?: string;
   searchKeywords?: string; //搜索的关键字
-  navigation: any;
+  onPressItem?: (type: ItemType, id: number) => void;
+  onPressCancel?: () => void;
+  onChangeText?: (text: string) => void;
 } & ThemeProps;
 
 type State = {
@@ -88,6 +90,7 @@ class SearchScreen extends Component<Props, State> {
     let searchKeys: string[] = [];
 
     if (text) {
+      this.props.onChangeText && this.props.onChangeText(text);
       searchKeys = await NewsAPI.Search.getSearchKeyList(text);
     }
 
@@ -97,7 +100,7 @@ class SearchScreen extends Component<Props, State> {
   render() {
     const { isFocused, searchKeys, keywords } = this.state;
 
-    const { defaultSearch, theme } = this.props;
+    const { defaultSearch, theme, onPressCancel, onPressItem } = this.props;
     const { backgroundColorC20 } = theme.colors;
 
     const headerBackgroundColor = {
@@ -137,7 +140,7 @@ class SearchScreen extends Component<Props, State> {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              this.props.navigation.pop();
+              onPressCancel && onPressCancel();
             }}
             style={{ paddingHorizontal: 15, justifyContent: 'center' }}
           >
@@ -171,9 +174,7 @@ class SearchScreen extends Component<Props, State> {
                     data={carModals}
                     onPressItem={(index) => {
                       const id = carModals[index].id;
-                      this.props.navigation.push('CarSeriesDetailScreen', {
-                        seriesId: id,
-                      });
+                      onPressItem && onPressItem(ItemType.CarSeries, id);
                     }}
                   />
 
@@ -192,46 +193,7 @@ class SearchScreen extends Component<Props, State> {
                   {!isFocused && keywords !== '' && (
                     <SearchResult
                       keywords={keywords}
-                      onPressItem={(type, id) => {
-                        switch (type) {
-                          case ItemType.Article: {
-                            this.props.navigation.push('ArticleDetailScreen', {
-                              newsId: id,
-                            });
-                            break;
-                          }
-
-                          case ItemType.Video: {
-                            this.props.navigation.push('VideoDetailScreen', {
-                              videoId: id,
-                            });
-                            break;
-                          }
-
-                          case ItemType.CarSeries: {
-                            this.props.navigation.push(
-                              'CarSeriesDetailScreen',
-                              {
-                                seriesId: id,
-                              }
-                            );
-                            break;
-                          }
-
-                          case ItemType.ConsultPrice: {
-                            this.props.navigation.navigate(
-                              'ConsultPriceScreen',
-                              {
-                                seriesId: id,
-                              }
-                            );
-                            break;
-                          }
-
-                          default:
-                            break;
-                        }
-                      }}
+                      onPressItem={onPressItem}
                     />
                   )}
                 </View>

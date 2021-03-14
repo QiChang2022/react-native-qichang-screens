@@ -9,7 +9,7 @@ const Title: React.FC<{
 }> = ({ keywords, title, theme = 'light' }) => {
   const { fontColorC2 } = ThemeConstants[theme];
 
-  return !!keywords ? (
+  return keywords ? (
     <Text style={[styles.title, { color: fontColorC2 }]} numberOfLines={3}>
       {title.split(keywords).map((item, index) => {
         if (index > 0) {

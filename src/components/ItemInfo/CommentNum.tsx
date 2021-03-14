@@ -17,7 +17,7 @@ const CommentNum = ({
     <View style={styles.container}>
       <Image
         source={
-          theme == 'dark'
+          theme === 'dark'
             ? require('./assets/Information_message_night_icon.png')
             : require('./assets/Information_message_icon.png')
         }

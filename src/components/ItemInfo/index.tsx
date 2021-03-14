@@ -43,7 +43,7 @@ const ItemInfo: React.FC<Props> = ({
           </Text>
         )}
         {isColumn && <Text style={styles.columnTitle}>专栏</Text>}
-        {author != '' && (
+        {author !== '' && (
           <Text style={[styles.name, { color: fontColorC4 }]}>{author}</Text>
         )}
         <ViewNum num={viewNum} theme={theme} />

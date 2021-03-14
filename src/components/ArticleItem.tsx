@@ -45,7 +45,7 @@ const ArticleItem: React.FC<Props> = ({
       }
     : {};
 
-  return articleType == ArticleType.Normal ? (
+  return articleType === ArticleType.Normal ? (
     <TouchableOpacity
       activeOpacity={0.8}
       style={[styles.containerRow, borderStyle]}
@@ -54,6 +54,7 @@ const ArticleItem: React.FC<Props> = ({
       <Image source={{ uri: cover }} style={styles.smallImage} />
 
       <View
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{ justifyContent: 'space-between', flex: 1, marginLeft: 12 }}
       >
         <Title title={title} keywords={keywords} theme={theme} />

@@ -21,7 +21,7 @@ const { width } = Dimensions.get('window');
 
 type Props = {
   keywords: string;
-  onPressItem: (type: ItemType, id: number) => void;
+  onPressItem?: (type: ItemType, id: number) => void;
 };
 
 export default class SearchResult extends Component<Props> {
@@ -108,7 +108,7 @@ export default class SearchResult extends Component<Props> {
                           }
                         }}
                         onPressItem={(type, id) => {
-                          onPressItem(type, id);
+                          onPressItem && onPressItem(type, id);
                         }}
                       />
                     );
@@ -117,7 +117,7 @@ export default class SearchResult extends Component<Props> {
                       <SearchResultNews
                         keywords={keywords}
                         onPressItem={(id) => {
-                          onPressItem(ItemType.Article, id);
+                          onPressItem && onPressItem(ItemType.Article, id);
                         }}
                       />
                     );
@@ -126,7 +126,7 @@ export default class SearchResult extends Component<Props> {
                       <SearchResultVideo
                         keywords={keywords}
                         onPressItem={(id) => {
-                          onPressItem(ItemType.Video, id);
+                          onPressItem && onPressItem(ItemType.Video, id);
                         }}
                       />
                     );
@@ -135,10 +135,10 @@ export default class SearchResult extends Component<Props> {
                       <SearchResultCarSeries
                         keywords={keywords}
                         onPressItem={(id) => {
-                          onPressItem(ItemType.CarSeries, id);
+                          onPressItem && onPressItem(ItemType.CarSeries, id);
                         }}
                         onPressConsult={(id) => {
-                          onPressItem(ItemType.ConsultPrice, id);
+                          onPressItem && onPressItem(ItemType.ConsultPrice, id);
                         }}
                       />
                     );
