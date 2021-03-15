@@ -31,7 +31,7 @@ const SearchKeywordsList: React.FC<Props> = ({
       style={[StyleSheet.absoluteFill, { backgroundColor: backgroundColorC20 }]}
       extraData={keywords}
       data={data}
-      keyExtractor={(item, index) => item + index}
+      keyExtractor={(_, index) => index + ''}
       renderItem={({ item, index }) => {
         const array = item.split(keywords);
 
@@ -54,17 +54,17 @@ const SearchKeywordsList: React.FC<Props> = ({
               {array.map((x, i) => {
                 if (i > 0) {
                   return (
-                    <>
+                    <Text key={i}>
                       <Text
                         style={{ color: ThemeConstants.light.masterColorC13 }}
                       >
                         {keywords}
                       </Text>
                       {x}
-                    </>
+                    </Text>
                   );
                 } else {
-                  return x;
+                  return <Text key={i}>{x}</Text>;
                 }
               })}
               {/* {" --- " + item }     */}
