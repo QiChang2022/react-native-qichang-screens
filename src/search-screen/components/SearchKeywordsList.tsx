@@ -51,8 +51,8 @@ const SearchKeywordsList: React.FC<Props> = ({
               source={require('./search-input/assets/stock_search_gray.png')}
             />
             <Text style={[styles.title, { color: fontColorC1 }]}>
-              {array.map(() => {
-                if (index > 0) {
+              {array.map((x, i) => {
+                if (i > 0) {
                   return (
                     <>
                       <Text
@@ -60,11 +60,11 @@ const SearchKeywordsList: React.FC<Props> = ({
                       >
                         {keywords}
                       </Text>
-                      {item}
+                      {x}
                     </>
                   );
                 } else {
-                  return item;
+                  return x;
                 }
               })}
               {/* {" --- " + item }     */}

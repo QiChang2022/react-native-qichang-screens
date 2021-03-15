@@ -10,10 +10,10 @@
 
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-
+import {SearchScreen} from 'react-native-qichang-screens';
 import {setURL, HttpUtils} from 'react-native-qichang-api';
 import {StatusBar} from 'react-native';
-import TextInput from './TextInput';
+//import TextInput from './TextInput';
 
 HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
 setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
@@ -22,8 +22,7 @@ const App = () => {
   return (
     <SafeAreaProvider>
       <StatusBar translucent={true} />
-      {/* <SearchScreen /> */}
-      <TextInput />
+      <SearchScreen />
     </SafeAreaProvider>
   );
 };
