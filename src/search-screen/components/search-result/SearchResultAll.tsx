@@ -34,6 +34,7 @@ import {
 import { NewsAPI } from 'react-native-qichang-api';
 
 import { ItemType } from '../../types';
+import UserItem from './UserItem';
 
 const { width } = Dimensions.get('window');
 
@@ -166,7 +167,7 @@ class SearchResultAll extends Component<Props> {
       { title: '用户', key: 'User', data: user_list },
     ];
 
-    if (Object.entries(data).every((value) => value[1].length === 0))
+    if (Object.entries(data).every((value) => value[1].length === 0)) {
       return (
         <NoSearchResultView
           onPressItem={(id) => {
@@ -174,6 +175,7 @@ class SearchResultAll extends Component<Props> {
           }}
         />
       );
+    }
 
     return (
       <FlatList
@@ -202,7 +204,15 @@ class SearchResultAll extends Component<Props> {
                 const comment_amount =
                   (item.amount && item.amount.comment) || 0; //评论数
                 const author = (item.user && item.user.name) || ''; //作者
-                const { cover, title, duration, id, name } = item;
+                const {
+                  cover,
+                  title,
+                  duration,
+                  id,
+                  name,
+                  face,
+                  summary,
+                } = item;
 
                 switch (key) {
                   case 'Article': {
@@ -274,6 +284,22 @@ class SearchResultAll extends Component<Props> {
                         }}
                         onPressConsult={() => {
                           onPressItem(ItemType.ConsultPrice, id);
+                        }}
+                      />
+                    );
+                  }
+                  case 'User': {
+                    return (
+                      <UserItem
+                        onPressItem={() => {
+                          onPressItem(ItemType.User, id);
+                        }}
+                        keywords={keywords}
+                        key={index}
+                        data={{
+                          avatarUrl: face,
+                          name: name,
+                          summary: summary || '这小子还没有任何签名',
                         }}
                       />
                     );

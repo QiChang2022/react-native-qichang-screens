@@ -13,6 +13,7 @@ import SearchResultNews from './SearchResultNews';
 import SearchResultVideo from './SearchResultVideo';
 
 import { NewsAPI } from 'react-native-qichang-api';
+import SearchResultUser from './SearchResultUser';
 
 const tabWidth = 56;
 const indicatorWidth = 16;
@@ -35,6 +36,7 @@ export default class SearchResult extends Component<Props> {
       //{ key: 'article', title: '文章' },
       //{ key: 'video', title: '视频' },
       //{ key: 'carSeries',title:'车系'},
+      //{ key: 'user',title:'用户'},
     ],
     hasLoadedRoutes: true,
   };
@@ -44,13 +46,14 @@ export default class SearchResult extends Component<Props> {
     //console.log(keywords)
     let data = await NewsAPI.Search.searchAll(keywords);
 
-    const { news_list, video_list, series_list } = data;
+    const { news_list, video_list, series_list, user_list } = data;
 
     let routes = this.state.routes;
 
     series_list.length > 0 && routes.push({ key: 'carSeries', title: '车系' });
     news_list.length > 0 && routes.push({ key: 'article', title: '文章' });
     video_list.length > 0 && routes.push({ key: 'video', title: '视频' });
+    user_list.length > 0 && routes.push({ key: 'user', title: '用户' });
 
     this.setState({
       routes,
@@ -99,12 +102,13 @@ export default class SearchResult extends Component<Props> {
                         data={data}
                         keywords={keywords}
                         onPressMore={(type) => {
-                          if (type === 'CarSeries') {
-                            this.setState({ index: 1 });
-                          } else if (type === 'Article') {
-                            this.setState({ index: 2 });
-                          } else if (type === 'Video') {
-                            this.setState({ index: 3 });
+                          let index = this.state.routes.findIndex(
+                            (value) =>
+                              value.key.toLocaleLowerCase() ===
+                              type.toLocaleLowerCase()
+                          );
+                          if (index !== -1) {
+                            this.setState({ index: index });
                           }
                         }}
                         onPressItem={(type, id) => {
@@ -139,6 +143,15 @@ export default class SearchResult extends Component<Props> {
                         }}
                         onPressConsult={(id) => {
                           onPressItem && onPressItem(ItemType.ConsultPrice, id);
+                        }}
+                      />
+                    );
+                  } else if (route.key === 'user') {
+                    return (
+                      <SearchResultUser
+                        keywords={keywords}
+                        onPressItem={(id) => {
+                          onPressItem && onPressItem(ItemType.User, id);
                         }}
                       />
                     );

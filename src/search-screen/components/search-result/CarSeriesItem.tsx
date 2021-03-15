@@ -34,7 +34,6 @@ const CarSeriesItem: React.FC<Props> = ({
       style={{
         ...styles.container,
         borderBottomColor: lineColorC5,
-        borderBottomWidth: StyleSheet.hairlineWidth,
       }}
       onPress={() => onPressItem(data)}
     >
@@ -77,6 +76,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     paddingHorizontal: 15,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 
   image: {

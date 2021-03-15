@@ -48,7 +48,9 @@ function debounce(func: Function, wait: number) {
   //console.log('timeout', timeout, arguments);
   return function () {
     let args = arguments;
-    if (timeout) clearTimeout(timeout);
+    if (timeout) {
+      clearTimeout(timeout);
+    }
     timeout = setTimeout(() => {
       func(...args);
     }, wait);
