@@ -1,6 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Keyboard } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Keyboard,
+  StyleSheet,
+} from 'react-native';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -37,6 +43,17 @@ type State = {
   isFocused: boolean;
 };
 
+function debounce(func: Function, wait: number) {
+  let timeout: any;
+  //console.log('timeout', timeout, arguments);
+  return function () {
+    let args = arguments;
+    if (timeout) clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func(...args);
+    }, wait);
+  };
+}
 class SearchScreen extends Component<Props, State> {
   searchInput: SearchInput | null = null;
 
@@ -69,22 +86,22 @@ class SearchScreen extends Component<Props, State> {
     }
   };
 
-  debounce(func: Function, wait: number) {
-    let timeout: any;
-    console.log('timeout', timeout, arguments);
-    return () => {
-      // eslint-disable-next-line consistent-this
-      let context = this;
-      console.log(arguments, timeout);
-      let args = arguments;
+  // debounce(func: Function, wait: number) {
+  //   let timeout: any;
+  //   console.log('timeout', timeout, arguments);
+  //   return function () {
+  //     // eslint-disable
+  //     let context = this;
+  //     console.log(arguments, timeout);
+  //     let args = arguments;
 
-      if (timeout) clearTimeout(timeout);
+  //     if (timeout) clearTimeout(timeout);
 
-      timeout = setTimeout(() => {
-        func.apply(context, args);
-      }, wait);
-    };
-  }
+  //     timeout = setTimeout(() => {
+  //       func.apply(context, args);
+  //     }, wait);
+  //   };
+  // }
 
   onChangeText = async (text: string) => {
     let searchKeys: string[] = [];
@@ -114,12 +131,12 @@ class SearchScreen extends Component<Props, State> {
         edges={['top']}
       >
         <View
-          style={{
-            height: 44,
-            flexDirection: 'row',
-            alignItems: 'center',
-            backgroundColor: headerBackgroundColor,
-          }}
+          style={[
+            styles.row,
+            {
+              backgroundColor: headerBackgroundColor,
+            },
+          ]}
         >
           <SearchInput
             placeholder={defaultSearch || '请输入您要搜索的关键词'}
@@ -135,16 +152,16 @@ class SearchScreen extends Component<Props, State> {
                 this.searchKeywords(defaultSearch);
               }
             }}
-            onChangeText={this.debounce(this.onChangeText, 200)}
+            onChangeText={debounce(this.onChangeText, 200)}
           />
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
               onPressCancel && onPressCancel();
             }}
-            style={{ paddingHorizontal: 15, justifyContent: 'center' }}
+            style={styles.cancelButton}
           >
-            <Text style={{ fontSize: 16, color: 'white' }}>取消</Text>
+            <Text style={styles.cancelText}>取消</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 1, backgroundColor: backgroundColorC20 }}>
@@ -205,5 +222,21 @@ class SearchScreen extends Component<Props, State> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  row: {
+    height: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  cancelButton: {
+    paddingHorizontal: 15,
+    justifyContent: 'center',
+  },
+  cancelText: {
+    fontSize: 16,
+    color: 'white',
+  },
+});
 
 export default withTheme(SearchScreen);
