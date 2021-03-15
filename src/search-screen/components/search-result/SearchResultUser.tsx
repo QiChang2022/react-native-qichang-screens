@@ -31,6 +31,7 @@ export default function SearchResultUser(props: Props) {
       renderItem={({ item }) => {
         return (
           <UserItem
+            keywords={keywords}
             onPressItem={() => {
               onPressItem && onPressItem(item.id);
             }}
