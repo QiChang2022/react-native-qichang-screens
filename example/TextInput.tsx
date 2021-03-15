@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {View, TextInput as Input, StyleSheet} from 'react-native';
-import {debounce} from 'lodash';
+import React, { Component } from 'react';
+import { View, TextInput as Input, StyleSheet } from 'react-native';
+import { debounce } from 'lodash';
 
 // function debounce(func: Function, wait: number) {
 //   let timeout: any;
@@ -24,7 +24,7 @@ export default class TextInput extends Component {
       <View style={styles.container}>
         <Input1
           placeholder="11"
-          style={{height: 50, backgroundColor: 'red'}}
+          style={styles.input}
           onChangeText={debounce(this.onChangeText, 1200)}
         />
       </View>
@@ -40,5 +40,9 @@ function Input1(props: any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  input: {
+    height: 50,
+    backgroundColor: 'red',
   },
 });

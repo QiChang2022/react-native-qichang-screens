@@ -9,14 +9,15 @@
  */
 
 import React from 'react';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import {SearchScreen} from 'react-native-qichang-screens';
-import {setURL, HttpUtils} from 'react-native-qichang-api';
-import {StatusBar} from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SearchScreen } from './src';
+import { setURL, HttpUtils } from 'react-native-qichang-api';
+import { StatusBar, Text } from 'react-native';
 //import TextInput from './TextInput';
 
 HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
-setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
+//setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
+setURL('http://app-api.bxmauto.com', 'http://search.bxmauto.com'); //测试
 
 const App = () => {
   // const keywords = '1';
@@ -25,25 +26,9 @@ const App = () => {
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView>
-        <StatusBar translucent={true} />
-        <SearchScreen />
-        {/* <Text>{data}</Text>
-        <Text style={{color: 'blue'}}>
-          {array.map((x, i) => {
-            if (i > 0) {
-              return (
-                <Text key={i}>
-                  <Text style={{color: 'red'}}>{keywords}</Text>
-                  {x}
-                </Text>
-              );
-            } else {
-              return <Text key={i}>{x}</Text>;
-            }
-          })}
-        </Text> */}
-      </SafeAreaView>
+      <StatusBar translucent={true} />
+      <Text accessibilityState={{ checked: true }} />
+      <SearchScreen />
     </SafeAreaProvider>
   );
 };

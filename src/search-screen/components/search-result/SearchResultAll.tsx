@@ -44,7 +44,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-type ResultType = 'Article' | 'Video' | 'CarSeries';
+type ResultType = 'Article' | 'Video' | 'CarSeries' | 'User';
 
 type Props = {
   keywords: string;
@@ -149,7 +149,7 @@ class SearchResultAll extends Component<Props> {
 
     const { showCarSeriesAll } = this.state;
 
-    const { news_list, video_list, series_list } = data;
+    const { news_list, video_list, series_list, user_list } = data;
     const {
       theme,
       colors: { fontColorC4, backgroundColorC7 },
@@ -163,6 +163,7 @@ class SearchResultAll extends Component<Props> {
       { title: '车系', key: 'CarSeries', data: series_list },
       { title: '文章', key: 'Article', data: news_list },
       { title: '视频', key: 'Video', data: video_list },
+      { title: '用户', key: 'User', data: user_list },
     ];
 
     if (Object.entries(data).every((value) => value[1].length === 0))
