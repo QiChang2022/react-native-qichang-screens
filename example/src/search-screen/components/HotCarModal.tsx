@@ -11,15 +11,16 @@ import { withTheme, ThemeProps } from '@damoness/react-native-qichang-kit';
 
 type Props = {
   data: Array<{
+    id: number;
     name: string;
     cover: string;
   }>;
-  onPressItem: (index: number) => void;
+  onPressItem: (index: number, id: number) => void;
 } & ThemeProps;
 
 const HotCarModal: React.FC<Props> = ({ data, onPressItem, theme }) => {
   const { fontColorC1, fontColorC21 } = theme.colors;
-
+  console.log('HotCarModal');
   return (
     <View style={styles.container}>
       <Text style={[styles.title, { color: fontColorC1 }]}>热门车型</Text>
@@ -30,7 +31,7 @@ const HotCarModal: React.FC<Props> = ({ data, onPressItem, theme }) => {
           return (
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => onPressItem(index)}
+              onPress={() => onPressItem(index, item.id)}
               style={styles.itemContainer}
             >
               <Image source={{ uri: item.cover }} style={styles.image} />
@@ -81,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(HotCarModal);
+export default React.memo(withTheme(HotCarModal));
