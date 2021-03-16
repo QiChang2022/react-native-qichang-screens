@@ -187,7 +187,7 @@ class SearchScreen extends Component<Props, State> {
           <SearchInput
             placeholder={defaultSearch || '请输入您要搜索的关键词'}
             ref={(ref) => (this.searchInput = ref)}
-            value={keywords}
+            defaultValue={keywords}
             onFocus={() => {
               this.setState({ isFocused: true });
             }}

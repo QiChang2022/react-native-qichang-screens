@@ -14,7 +14,7 @@ type Props = {
   onChangeText: (text: string) => void;
   onSubmitEditing?: (text: string) => void;
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  value: string;
+  defaultValue: string;
   placeholder?: string;
 };
 
@@ -26,7 +26,7 @@ class SearchInput extends PureComponent<Props, State> {
     super(props);
 
     this.state = {
-      text: props.value,
+      text: props.defaultValue,
     };
   }
 
