@@ -13,6 +13,7 @@ type Props = {
 } & ThemeProps;
 
 const HotSearchList: React.FC<Props> = ({ data, onPressItem, theme }) => {
+  console.log('HotSearchList');
   const { backgroundColorC6 } = theme.colors;
 
   return (
@@ -68,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withTheme(HotSearchList);
+export default React.memo(withTheme(HotSearchList));

@@ -273,7 +273,6 @@ class SearchResultAll extends Component<Props> {
                       <CarSeriesItem
                         theme={theme}
                         key={index}
-                        keywords={keywords}
                         data={{
                           imageUrl: cover,
                           brandName: name,
@@ -294,7 +293,6 @@ class SearchResultAll extends Component<Props> {
                         onPressItem={() => {
                           onPressItem(ItemType.User, id);
                         }}
-                        keywords={keywords}
                         key={index}
                         data={{
                           avatarUrl: face,

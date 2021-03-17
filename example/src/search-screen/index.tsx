@@ -26,6 +26,7 @@ import {
 
 import { NewsAPI } from 'react-native-qichang-api';
 import { ItemType } from './types';
+import KeywordsContext from './components/KeywordsContext';
 
 export { ItemType };
 
@@ -144,7 +145,6 @@ class SearchScreen extends Component<Props, State> {
         {isFocused && searchKeys.length > 0 && (
           <SearchKeywordsList
             data={searchKeys}
-            keywords={keywords}
             onPressItem={(text) => {
               if (text) {
                 this.searchKeywords(text);
@@ -172,51 +172,53 @@ class SearchScreen extends Component<Props, State> {
     }[theme.theme];
 
     return (
-      <SafeAreaView
-        style={{ backgroundColor: headerBackgroundColor, flex: 1 }}
-        edges={['top']}
-      >
-        <View
-          style={[
-            styles.row,
-            {
-              backgroundColor: headerBackgroundColor,
-            },
-          ]}
+      <KeywordsContext.Provider value={keywords}>
+        <SafeAreaView
+          style={{ backgroundColor: headerBackgroundColor, flex: 1 }}
+          edges={['top']}
         >
-          <SearchInput
-            placeholder={defaultSearch || '请输入您要搜索的关键词'}
-            ref={(ref) => (this.searchInput = ref)}
-            defaultValue={keywords}
-            onFocus={() => {
-              this.setState({ isFocused: true });
-            }}
-            onSubmitEditing={(text) => {
-              if (text) {
-                this.searchKeywords(text);
-              } else if (defaultSearch) {
-                this.searchKeywords(defaultSearch);
-              }
-            }}
-            onChangeText={debounce(this.onChangeText, 200)}
-          />
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => {
-              onPressCancel && onPressCancel();
-            }}
-            style={styles.cancelButton}
+          <View
+            style={[
+              styles.row,
+              {
+                backgroundColor: headerBackgroundColor,
+              },
+            ]}
           >
-            <Text style={styles.cancelText}>取消</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ flex: 1, backgroundColor: backgroundColorC20 }}>
-          <LoadingComponent
-            fetchData={this.fetchData}
-            render={this.renderContent}
-          />
-        </View>
-      </SafeAreaView>
+            <SearchInput
+              placeholder={defaultSearch || '请输入您要搜索的关键词'}
+              ref={(ref) => (this.searchInput = ref)}
+              defaultValue={keywords}
+              onFocus={() => {
+                this.setState({ isFocused: true });
+              }}
+              onSubmitEditing={(text) => {
+                if (text) {
+                  this.searchKeywords(text);
+                } else if (defaultSearch) {
+                  this.searchKeywords(defaultSearch);
+                }
+              }}
+              onChangeText={debounce(this.onChangeText, 200)}
+            />
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                onPressCancel && onPressCancel();
+              }}
+              style={styles.cancelButton}
+            >
+              <Text style={styles.cancelText}>取消</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ flex: 1, backgroundColor: backgroundColorC20 }}>
+            <LoadingComponent
+              fetchData={this.fetchData}
+              render={this.renderContent}
+            />
+          </View>
+        </SafeAreaView>
+      </KeywordsContext.Provider>
     );
   }
 }

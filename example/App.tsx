@@ -9,10 +9,8 @@
  */
 
 import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { SearchScreen } from './src';
 import { setURL, HttpUtils } from 'react-native-qichang-api';
-import { StatusBar, Text } from 'react-native';
 //import TextInput from './TextInput';
 
 HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
@@ -24,13 +22,7 @@ const App = () => {
   // const data = '福布斯“2019年全球100位最具影响力女性';
   // const array = data.split(keywords);
 
-  return (
-    <SafeAreaProvider>
-      <StatusBar translucent={true} />
-      <Text accessibilityState={{ checked: true }} />
-      <SearchScreen />
-    </SafeAreaProvider>
-  );
+  return <SearchScreen />;
 };
 
 export default App;

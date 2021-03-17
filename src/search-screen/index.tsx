@@ -26,6 +26,7 @@ import {
 
 import { NewsAPI } from 'react-native-qichang-api';
 import { ItemType } from './types';
+import KeywordsContext from './components/KeywordsContext';
 
 export { ItemType };
 
@@ -56,6 +57,7 @@ function debounce(func: Function, wait: number) {
     }, wait);
   };
 }
+
 class SearchScreen extends Component<Props, State> {
   searchInput: SearchInput | null = null;
 
@@ -88,22 +90,20 @@ class SearchScreen extends Component<Props, State> {
     }
   };
 
-  // debounce(func: Function, wait: number) {
-  //   let timeout: any;
-  //   console.log('timeout', timeout, arguments);
-  //   return function () {
-  //     // eslint-disable
-  //     let context = this;
-  //     console.log(arguments, timeout);
-  //     let args = arguments;
-
-  //     if (timeout) clearTimeout(timeout);
-
-  //     timeout = setTimeout(() => {
-  //       func.apply(context, args);
-  //     }, wait);
-  //   };
-  // }
+  /**
+   * 获取热门搜索 和 热门车型 列表数据
+   * @returns
+   */
+  fetchData = async () => {
+    let [carModals, hotWords] = await Promise.all([
+      NewsAPI.Search.getHotCarModals(),
+      NewsAPI.Search.getSearchHotWords(),
+    ]);
+    return {
+      carModals,
+      hotWords: hotWords.map((item: any) => item.title),
+    };
+  };
 
   onChangeText = async (text: string) => {
     let searchKeys: string[] = [];
@@ -112,14 +112,58 @@ class SearchScreen extends Component<Props, State> {
       this.props.onChangeText && this.props.onChangeText(text);
       searchKeys = await NewsAPI.Search.getSearchKeyList(text);
     }
-
     this.setState({ searchKeys, keywords: text });
   };
 
-  render() {
-    const { isFocused, searchKeys, keywords } = this.state;
+  onPressHotSearchListItem = (text: string) => {
+    this.searchKeywords(text);
+  };
 
-    const { defaultSearch, theme, onPressCancel, onPressItem } = this.props;
+  onPressHotCarModalItem = (_: number, id: number) => {
+    const { onPressItem } = this.props;
+    onPressItem && onPressItem(ItemType.CarSeries, id);
+  };
+
+  renderContent = (data: any) => {
+    console.log('renderContent');
+
+    const { carModals, hotWords } = data;
+    const { isFocused, searchKeys, keywords } = this.state;
+    const { onPressItem } = this.props;
+
+    return (
+      <View style={{ flex: 1 }}>
+        <HotSearchList
+          data={hotWords}
+          onPressItem={this.onPressHotSearchListItem}
+        />
+        <HotCarModal
+          data={carModals}
+          onPressItem={this.onPressHotCarModalItem}
+        />
+
+        {isFocused && searchKeys.length > 0 && (
+          <SearchKeywordsList
+            data={searchKeys}
+            onPressItem={(text) => {
+              if (text) {
+                this.searchKeywords(text);
+              }
+            }}
+          />
+        )}
+
+        {!isFocused && keywords !== '' && (
+          <SearchResult keywords={keywords} onPressItem={onPressItem} />
+        )}
+      </View>
+    );
+  };
+
+  render() {
+    const { keywords } = this.state;
+
+    const { defaultSearch, theme, onPressCancel } = this.props;
     const { backgroundColorC20 } = theme.colors;
 
     const headerBackgroundColor = {
@@ -128,99 +172,53 @@ class SearchScreen extends Component<Props, State> {
     }[theme.theme];
 
     return (
-      <SafeAreaView
-        style={{ backgroundColor: headerBackgroundColor, flex: 1 }}
-        edges={['top']}
-      >
-        <View
-          style={[
-            styles.row,
-            {
-              backgroundColor: headerBackgroundColor,
-            },
-          ]}
+      <KeywordsContext.Provider value={keywords}>
+        <SafeAreaView
+          style={{ backgroundColor: headerBackgroundColor, flex: 1 }}
+          edges={['top']}
         >
-          <SearchInput
-            placeholder={defaultSearch || '请输入您要搜索的关键词'}
-            ref={(ref) => (this.searchInput = ref)}
-            value={keywords}
-            onFocus={() => {
-              this.setState({ isFocused: true });
-            }}
-            onSubmitEditing={(text) => {
-              if (text) {
-                this.searchKeywords(text);
-              } else if (defaultSearch) {
-                this.searchKeywords(defaultSearch);
-              }
-            }}
-            onChangeText={debounce(this.onChangeText, 200)}
-          />
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => {
-              onPressCancel && onPressCancel();
-            }}
-            style={styles.cancelButton}
+          <View
+            style={[
+              styles.row,
+              {
+                backgroundColor: headerBackgroundColor,
+              },
+            ]}
           >
-            <Text style={styles.cancelText}>取消</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={{ flex: 1, backgroundColor: backgroundColorC20 }}>
-          <LoadingComponent
-            fetchData={async () => {
-              let [carModals, hotWords] = await Promise.all([
-                NewsAPI.Search.getHotCarModals(),
-                NewsAPI.Search.getSearchHotWords(),
-              ]);
-              return {
-                carModals,
-                hotWords,
-              };
-            }}
-            render={(data) => {
-              const { carModals, hotWords } = data;
-
-              return (
-                <View style={{ flex: 1 }}>
-                  <HotSearchList
-                    data={hotWords.map((item: any) => item.title)}
-                    onPressItem={(text) => {
-                      this.searchKeywords(text);
-                    }}
-                  />
-                  <HotCarModal
-                    data={carModals}
-                    onPressItem={(index) => {
-                      const id = carModals[index].id;
-                      onPressItem && onPressItem(ItemType.CarSeries, id);
-                    }}
-                  />
-
-                  {isFocused && searchKeys.length > 0 && (
-                    <SearchKeywordsList
-                      data={searchKeys}
-                      keywords={keywords}
-                      onPressItem={(text) => {
-                        if (text) {
-                          this.searchKeywords(text);
-                        }
-                      }}
-                    />
-                  )}
-
-                  {!isFocused && keywords !== '' && (
-                    <SearchResult
-                      keywords={keywords}
-                      onPressItem={onPressItem}
-                    />
-                  )}
-                </View>
-              );
-            }}
-          />
-        </View>
-      </SafeAreaView>
+            <SearchInput
+              placeholder={defaultSearch || '请输入您要搜索的关键词'}
+              ref={(ref) => (this.searchInput = ref)}
+              defaultValue={keywords}
+              onFocus={() => {
+                this.setState({ isFocused: true });
+              }}
+              onSubmitEditing={(text) => {
+                if (text) {
+                  this.searchKeywords(text);
+                } else if (defaultSearch) {
+                  this.searchKeywords(defaultSearch);
+                }
+              }}
+              onChangeText={debounce(this.onChangeText, 200)}
+            />
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => {
+                onPressCancel && onPressCancel();
+              }}
+              style={styles.cancelButton}
+            >
+              <Text style={styles.cancelText}>取消</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{ flex: 1, backgroundColor: backgroundColorC20 }}>
+            <LoadingComponent
+              fetchData={this.fetchData}
+              render={this.renderContent}
+            />
+          </View>
+        </SafeAreaView>
+      </KeywordsContext.Provider>
     );
   }
 }

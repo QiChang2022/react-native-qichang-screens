@@ -2,7 +2,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Image, ThemeConstants } from '@damoness/react-native-qichang-kit';
-import { Title } from '../../../components/';
+import KeyTitle from '../KeyTitle';
 
 type Data = {
   imageUrl: string;
@@ -12,7 +12,6 @@ type Data = {
 
 type Props = {
   theme?: 'light' | 'dark';
-  keywords?: string; // 需要高亮的关键字
   data: Data;
   onPressConsult: (item: Data) => void;
   onPressItem: (item: Data) => void;
@@ -23,7 +22,6 @@ const CarSeriesItem: React.FC<Props> = ({
   onPressItem,
   onPressConsult,
   theme = 'light',
-  keywords,
 }) => {
   const { lineColorC5 } = ThemeConstants[theme];
   const { imageUrl, brandName, priceRange } = data;
@@ -44,7 +42,7 @@ const CarSeriesItem: React.FC<Props> = ({
           resizeMode="contain"
         />
         <View style={{ marginLeft: 20 }}>
-          <Title title={brandName} keywords={keywords} theme={theme} />
+          <KeyTitle title={brandName} theme={theme} />
           <Text
             style={{
               color: ThemeConstants.light.masterColorC13,

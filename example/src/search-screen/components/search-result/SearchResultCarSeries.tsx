@@ -48,7 +48,6 @@ const SearchResultCarSeries: React.FC<Props> = ({
           <CarSeriesItem
             theme={theme}
             key={index}
-            keywords={keywords}
             data={{
               imageUrl: cover,
               brandName: name,

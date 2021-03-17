@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -14,19 +14,19 @@ type Props = {
   onChangeText: (text: string) => void;
   onSubmitEditing?: (text: string) => void;
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  value: string;
+  defaultValue: string;
   placeholder?: string;
 };
 
 type State = {
   text: string;
 };
-class SearchInput extends Component<Props, State> {
+class SearchInput extends PureComponent<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      text: props.value,
+      text: props.defaultValue,
     };
   }
 
@@ -40,10 +40,22 @@ class SearchInput extends Component<Props, State> {
     this.setState({ text });
   };
 
+  clear = () => {
+    this.changeTextHandler('');
+  };
+
+  changeTextHandler = (t: string) => {
+    const { onChangeText } = this.props;
+    this.setState({ text: t });
+    onChangeText(t);
+  };
+
   render() {
-    const { onChangeText, onSubmitEditing, onFocus, placeholder } = this.props;
+    const { onSubmitEditing, onFocus, placeholder } = this.props;
 
     const { text } = this.state;
+
+    console.log('SearchInput', text);
 
     return (
       <View style={styles.container}>
@@ -62,20 +74,11 @@ class SearchInput extends Component<Props, State> {
           onSubmitEditing={({ nativeEvent }) => {
             onSubmitEditing && onSubmitEditing(nativeEvent.text);
           }}
-          onChangeText={(t) => {
-            this.setState({ text: t });
-            onChangeText(t);
-          }}
+          onChangeText={this.changeTextHandler}
           ref={(ref) => (this.textInput = ref)}
         />
         {text.length > 0 && (
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => {
-              this.setState({ text: '' });
-              onChangeText('');
-            }}
-          >
+          <TouchableOpacity activeOpacity={0.8} onPress={this.clear}>
             <Image
               source={require('./assets/search_delete.png')}
               style={{ marginHorizontal: 10 }}

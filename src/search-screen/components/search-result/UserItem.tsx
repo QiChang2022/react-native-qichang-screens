@@ -1,7 +1,7 @@
 import { Avatar, useTheme } from '@damoness/react-native-qichang-kit';
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Title } from '../../../components';
+import KeyTitle from '../KeyTitle';
 
 type Data = {
   avatarUrl: string;
@@ -10,14 +10,12 @@ type Data = {
 };
 
 type Props = {
-  keywords?: string; // 需要高亮的关键字
   data: Data;
   onPressItem?: (item: Data) => void;
 };
 
 export default function UserItem(props: Props) {
   const {
-    keywords,
     data: { avatarUrl, name, summary },
     onPressItem,
   } = props;
@@ -35,7 +33,7 @@ export default function UserItem(props: Props) {
     >
       <Avatar url={avatarUrl} size={50} style={styles.avatar} />
       <View>
-        <Title title={name} keywords={keywords} theme={theme} />
+        <KeyTitle title={name} theme={theme} />
         <Text
           numberOfLines={1}
           style={[styles.summaryText, { color: fontColorC4 }]}
