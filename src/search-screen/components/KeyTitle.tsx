@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import type { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle } from 'react-native';
 import { Title } from '../../components';
 
 import KeywordsContext from './KeywordsContext';
