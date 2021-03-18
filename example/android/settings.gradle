@@ -1,3 +1,6 @@
-rootProject.name = 'AwesomeTSProject'
+rootProject.name = 'QichangScreensExample'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
+
+include ':reactnativeqichangscreens'
+project(':reactnativeqichangscreens').projectDir = new File(rootProject.projectDir, '../../android')
