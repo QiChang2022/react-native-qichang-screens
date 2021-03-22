@@ -9,8 +9,9 @@
  */
 
 import React from 'react';
-import { SearchScreen } from 'react-native-qichang-screens';
+import { UserDetailScreen } from 'react-native-qichang-screens';
 import { setURL, HttpUtils } from 'react-native-qichang-api';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 //import TextInput from './TextInput';
 
 HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
@@ -18,11 +19,12 @@ HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
 setURL('http://app-api.bxmauto.com', 'http://search.bxmauto.com'); //测试
 
 const App = () => {
-  // const keywords = '1';
-  // const data = '福布斯“2019年全球100位最具影响力女性';
-  // const array = data.split(keywords);
-
-  return <SearchScreen />;
+  return (
+    <SafeAreaProvider>
+      {/* <SearchScreen searchKeywords="奥迪" /> */}
+      <UserDetailScreen userId={85} />
+    </SafeAreaProvider>
+  );
 };
 
 export default App;

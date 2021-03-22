@@ -50,6 +50,7 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@damoness/react-native-qichang-kit": "^0.16.0",
     "@damoness/react-native-refresh": "^0.5.0",
+    "@react-native-community/blur": "^3.6.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^2.0.0",
     "@types/jest": "^26.0.0",
@@ -66,7 +67,7 @@
     "react": "16.13.1",
     "react-native": "0.63.4",
     "react-native-builder-bob": "^0.17.1",
-    "react-native-qichang-api": "^1.0.3",
+    "react-native-qichang-api": "^1.1.1",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-tab-view": "^2.16.0",
     "release-it": "^14.2.2",
@@ -75,9 +76,10 @@
   "peerDependencies": {
     "@damoness/react-native-qichang-kit": "^0.16.0",
     "@damoness/react-native-refresh": "^0.5.0",
+    "@react-native-community/blur": "^3.6.0",
     "react": "*",
     "react-native": "*",
-    "react-native-qichang-api": "^1.0.3",
+    "react-native-qichang-api": "^1.1.0",
     "react-native-safe-area-context": "^3.2.0",
     "react-native-tab-view": "^2.16.0"
   },
