@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import { useTheme } from '@damoness/react-native-qichang-kit';
 import React from 'react';
 import { Dimensions } from 'react-native';

@@ -25,7 +25,7 @@ export default function TabBarView(props: Props) {
       onIndexChange={setIndex}
       initialLayout={initialLayout}
       lazy
-      renderTabBar={(props) => <TabBar {...props} />}
+      renderTabBar={(p) => <TabBar {...p} />}
     />
   );
 }

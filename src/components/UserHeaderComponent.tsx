@@ -28,6 +28,7 @@ function UserHeaderComponent({ data }: Props) {
       <View
         style={[
           StyleSheet.absoluteFill,
+          // eslint-disable-next-line react-native/no-inline-styles
           { backgroundColor: 'rgba(0,0,0,0.4)' },
         ]}
       />

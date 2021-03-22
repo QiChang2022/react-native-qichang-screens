@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import { View, Dimensions, StyleSheet } from 'react-native';
 import { ArticleType, ArticleItem, VideoItem, VideoType } from '../components';
@@ -46,7 +47,7 @@ function UserContentList({ userId, type, onPressItem }: Props) {
         const comment_amount = (item.amount && item.amount.comment) || 0; //评论数
         const author = (item.user && item.user.name) || ''; //作者
 
-        if (item.record_type == Source_Cat.news) {
+        if (item.record_type === Source_Cat.news) {
           return (
             <ArticleItem
               theme={theme}
@@ -63,7 +64,7 @@ function UserContentList({ userId, type, onPressItem }: Props) {
               onPress={() => onPressItem && onPressItem('news', item.id)}
             />
           );
-        } else if (item.record_type == Source_Cat.video) {
+        } else if (item.record_type === Source_Cat.video) {
           return (
             <VideoItem
               theme={theme}
