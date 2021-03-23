@@ -13,6 +13,7 @@ import { UserDetailScreen } from 'react-native-qichang-screens';
 import { setURL, HttpUtils } from 'react-native-qichang-api';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 //import TextInput from './TextInput';
+//import { View } from 'react-native';
 
 HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
 //setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
@@ -23,6 +24,7 @@ const App = () => {
     <SafeAreaProvider>
       {/* <SearchScreen searchKeywords="奥迪" /> */}
       <UserDetailScreen userId={85} />
+      {/* <CommentNum num={1} /> */}
     </SafeAreaProvider>
   );
 };

@@ -26,9 +26,7 @@ const VideoTime: React.FC<Props> = ({ time, type }) => {
   );
 };
 
-VideoTime.defaultProps = {
-  type: 'big',
-};
+export default React.memo(VideoTime);
 
 const styles = StyleSheet.create({
   container: {
@@ -69,5 +67,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-export default VideoTime;

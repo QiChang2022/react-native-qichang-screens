@@ -15,7 +15,6 @@ type Props = {
 const HotSearchList: React.FC<Props> = ({ data, onPressItem, theme }) => {
   console.log('HotSearchList');
   const { backgroundColorC6 } = theme.colors;
-
   return (
     <View style={styles.container}>
       <ThemedText style={styles.title} type={ThemedTextType.headline}>
@@ -40,6 +39,8 @@ const HotSearchList: React.FC<Props> = ({ data, onPressItem, theme }) => {
     </View>
   );
 };
+
+export default React.memo(withTheme(HotSearchList));
 
 const styles = StyleSheet.create({
   container: {
@@ -68,5 +69,3 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 });
-
-export default React.memo(withTheme(HotSearchList));

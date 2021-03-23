@@ -86,6 +86,7 @@ const ArticleItem: React.FC<Props> = ({
           commentNum: data.comment_amount,
           author: author,
         }}
+        theme={theme}
       />
     </TouchableOpacity>
   );

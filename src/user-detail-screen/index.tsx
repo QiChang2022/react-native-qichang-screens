@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import {
   LoadingComponent,
@@ -30,9 +30,8 @@ class UserDetailScreen extends Component<Props> {
         fetchData={() => NewsAPI.getUserDetail(userId)}
         render={(data) => {
           return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.container}>
               <UserHeaderComponent data={data} />
-
               <TabBarView
                 renderScene={({ route: { key } }) => {
                   let type = key as 'news' | 'video' | 'all';
@@ -52,5 +51,11 @@ class UserDetailScreen extends Component<Props> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default UserDetailScreen;

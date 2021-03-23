@@ -2,10 +2,12 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-const ViewNum: React.FC<{ num: number; theme?: 'light' | 'dark' }> = ({
-  num,
-  theme = 'light',
-}) => {
+type Props = {
+  num: number;
+  theme?: 'light' | 'dark';
+};
+
+const ViewNum: React.FC<Props> = ({ num, theme = 'light' }) => {
   const numStr =
     num > 10000 ? (num / 10000).toFixed(num > 10000 * 100 ? 0 : 1) + '万' : num;
 

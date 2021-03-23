@@ -2,12 +2,19 @@ import React, { Fragment } from 'react';
 import { Text, StyleSheet, StyleProp, TextStyle } from 'react-native';
 import { ThemeConstants } from '@damoness/react-native-qichang-kit';
 
-const Title: React.FC<{
+type Props = {
   style?: StyleProp<TextStyle>;
   keywords?: string;
   title: string;
   theme?: 'light' | 'dark';
-}> = ({ keywords, title, theme = 'light', style }) => {
+};
+
+const Title: React.FC<Props> = ({
+  style,
+  keywords,
+  title,
+  theme = 'light',
+}) => {
   const { fontColorC2 } = ThemeConstants[theme];
 
   return keywords ? (
@@ -19,9 +26,7 @@ const Title: React.FC<{
         if (index > 0) {
           return (
             <Fragment key={index}>
-              <Text style={{ color: ThemeConstants.light.masterColorC13 }}>
-                {keywords}
-              </Text>
+              <Text style={styles.keywordsColor}>{keywords}</Text>
               {item}
             </Fragment>
           );
@@ -48,5 +53,8 @@ const styles = StyleSheet.create({
     lineHeight: 21,
     paddingBottom: 12,
     marginTop: -3,
+  },
+  keywordsColor: {
+    color: ThemeConstants.light.masterColorC13,
   },
 });

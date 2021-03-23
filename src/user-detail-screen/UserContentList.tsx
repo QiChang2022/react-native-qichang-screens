@@ -20,6 +20,17 @@ function UserContentList({ userId, type, onPressItem }: Props) {
     colors: { backgroundColorC20, lineColorC5 },
     theme,
   } = useTheme();
+
+  const ItemSeparatorComponent = () => (
+    <View
+      style={{
+        height: StyleSheet.hairlineWidth,
+        marginHorizontal: 15,
+        backgroundColor: lineColorC5,
+      }}
+    />
+  );
+
   return (
     <PullDownRefreshAndPullUpLoadMoreListView
       style={{ flex: 1, backgroundColor: backgroundColorC20 }}
@@ -33,15 +44,7 @@ function UserContentList({ userId, type, onPressItem }: Props) {
       loadDataFunction={NewsAPI.getUserDetailListData}
       enableRefreshing={false}
       loadDataParams={[userId, type]}
-      ItemSeparatorComponent={() => (
-        <View
-          style={{
-            height: StyleSheet.hairlineWidth,
-            marginHorizontal: 15,
-            backgroundColor: lineColorC5,
-          }}
-        />
-      )}
+      ItemSeparatorComponent={ItemSeparatorComponent}
       renderItem={({ item }) => {
         const browse_amount = (item.amount && item.amount.browse) || 0; //浏览数
         const comment_amount = (item.amount && item.amount.comment) || 0; //评论数

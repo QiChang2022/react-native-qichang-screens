@@ -10,7 +10,7 @@ type Props = {
   ) => React.ReactNode;
 };
 
-export default function TabBarView(props: Props) {
+const TabBarView: React.FC<Props> = (props) => {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'all', title: '全部' },
@@ -28,4 +28,6 @@ export default function TabBarView(props: Props) {
       renderTabBar={(p) => <TabBar {...p} />}
     />
   );
-}
+};
+
+export default TabBarView;

@@ -2,17 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { ThemeConstants } from '@damoness/react-native-qichang-kit';
 
-//评论数
-
-const CommentNum = ({
-  num,
-  theme = 'light',
-}: {
+type Props = {
   num: number;
   theme?: 'light' | 'dark';
-}) => {
-  const { fontColorC4 } = ThemeConstants[theme];
+};
 
+//评论数
+const CommentNum: React.FC<Props> = ({ num, theme = 'light' }) => {
+  const { fontColorC4 } = ThemeConstants[theme];
   return (
     <View style={styles.container}>
       <Image

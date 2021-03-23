@@ -10,7 +10,7 @@ type Props = {
   };
 };
 
-function UserHeaderComponent({ data }: Props) {
+const UserHeaderComponent: React.FC<Props> = ({ data }) => {
   const { face, name, summary } = data;
 
   console.log('ColumnHeaderComponent');
@@ -42,7 +42,7 @@ function UserHeaderComponent({ data }: Props) {
       </View>
     </View>
   );
-}
+};
 
 export default React.memo(UserHeaderComponent);
 
