@@ -7,26 +7,22 @@
  *
  * @format
  */
-
 import React from 'react';
-import { UserDetailScreen } from 'react-native-qichang-screens';
-import { setURL, HttpUtils } from 'react-native-qichang-api';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-//import TextInput from './TextInput';
-//import { View } from 'react-native';
 
-HttpUtils.setHeaders('getVersion()', 'getDeviceId()', 'getSystemVersion()');
-//setURL('http://api-app.qichangv.com', 'http://api-search.qichangv.com');
-setURL('http://app-api.bxmauto.com', 'http://search.bxmauto.com'); //测试
+import 'react-native-gesture-handler';
 
-const App = () => {
+import { NavigationContainer } from '@react-navigation/native';
+
+import './init';
+
+import { TabNavigator } from './navigators';
+
+function App() {
   return (
-    <SafeAreaProvider>
-      {/* <SearchScreen searchKeywords="奥迪" /> */}
-      <UserDetailScreen userId={85} />
-      {/* <CommentNum num={1} /> */}
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <TabNavigator />
+    </NavigationContainer>
   );
-};
+}
 
 export default App;
