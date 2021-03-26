@@ -6,7 +6,7 @@ import {
 
 import { StackScreenProps } from '@react-navigation/stack';
 
-import { HomeStackParamList } from '../navigators/HomeStackNavigator';
+import { HomeStackParamList } from '../navigation/HomeStackNavigator';
 
 type Props = StackScreenProps<HomeStackParamList, 'Search'>;
 

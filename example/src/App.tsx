@@ -15,7 +15,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import './init';
 
-import { TabNavigator } from './navigators';
+import { TabNavigator } from './navigation';
 
 function App() {
   return (
